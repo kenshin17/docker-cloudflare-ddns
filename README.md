@@ -36,6 +36,17 @@ docker run \
   oznu/cloudflare-ddns:armhf
 ```
 
+Run Docker daemon and auto restart container.
+```shell
+docker run \
+  -d --restart unless-stopped \
+  --name update-cloudflare  \
+  -e EMAIL=hello@example.com \
+  -e API_KEY=xxxxxxx \
+  -e ZONE=example.com \
+  -e SUBDOMAIN=subdomain \
+  oznu/cloudflare-ddns
+```
 ## Parameters
 
 * `--restart=always` - ensure the container restarts automatically after host reboot.
